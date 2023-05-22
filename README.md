@@ -192,7 +192,7 @@ Create a CodeSpace (you must be logged in to GitHub):
 
 ![Create a new CodeSpace by clicking on the "Code" button and then selecting the CodeSpace tab](CodeSpace.png)
 
-You should then wait for the installation to complete in the terminal window. Once complete, start the app by running 'npm start' from the CodeSpace terminal.
+You should then wait for the installation to complete in the terminal window. Once complete, start the app by running `npm start` from the CodeSpace terminal.
 
 The web app should open in a browser window. If you try searching for anything, you should get a message that you need to set up the HTTPS endpoints.
 
