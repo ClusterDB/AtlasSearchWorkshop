@@ -178,13 +178,22 @@ exports = async function({ query, headers, body}, response) {
 
 This repo includes a REACT movie-search web app which is able to use the two HTTP endpoints you've just created.
 
-To download and start the app:
+To download and start the app (if you're able to install Node.js on your machine):
 ```bash
 git clone git@github.com:ClusterDB/AtlasSearchWorkshop.git
 cd AtlasSearchWorkshop
 npm install
 npm start
 ```
+
+To download and start the app (if you're **not** able to install Node.js on your machine):
+
+Create a CodeSpace (you must be logged in to GitHub):
+
+![Create a new CodeSpace by clicking on the "Code" button and then selecting the CodeSpace tab](CodeSpace.png)
+
+You should then wait for the installation to complete in the terminal window. Once complete, start the app by running 'npm start' from the CodeSpace terminal.
+
 The web app should open in a browser window. If you try searching for anything, you should get a message that you need to set up the HTTPS endpoints.
 
 To make the app work, you need to add your endpoints to `src/components/Home.js` (line 22) and `src/components/SearchBar/SearchBar.js` (line 15).
