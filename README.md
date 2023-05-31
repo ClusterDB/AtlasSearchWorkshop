@@ -196,9 +196,21 @@ You should then wait for the installation to complete in the terminal window. On
 
 The web app should open in a browser window. If you try searching for anything, you should get a message that you need to set up the HTTPS endpoints.
 
-To make the app work, you need to add your endpoints to `src/components/Home.js` (line 22) and `src/components/SearchBar/SearchBar.js` (line 15).
+To make the app work, you need to add your endpoints to `src/components/Home.js` (lines 23 & 24):
+
+```js
+// INSERT YOUR CREATED MOVIE ENDPOINTS
+const [moviesEndpoint, setMoviesEndpoint] = useState('Your endpoint to fetch movies goes here');
+const [titlesEndpoint, setTitlesEndpoint] = useState('Your endpoint to fetch titles goes here');
+```
 
 When you save the files, the app should rebuild - you may need to refresh the browser window.
+
+## OPTIONAL: Test your backend Atlas app using a shared frontend
+
+If you're not able to build the frontend Node.js app locally or in CodeSpace, you can still test out your Atlas backend by pasting your endpoints into this shared frontend app: [https://application-0-jdvvr.mongodbstitch.com/](https://application-0-jdvvr.mongodbstitch.com/).
+
+![Web UI showing 2 input boxes - one for the getMovies endpoint, and one for the getTitles endpoint](EndPoints.png)
 
 ## Final demo
 

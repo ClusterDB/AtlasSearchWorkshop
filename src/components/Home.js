@@ -5,6 +5,7 @@ import Header from "./Header";
 import Grid from "./Grid/Grid";
 import Thumb from "./Thumb/Thumb";
 import Filter from "./Filter/Filter";
+import EndPoints from "./EndPoints";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -17,9 +18,10 @@ const Home = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showNeedEndpointMessage, setShowNeedEndpointMessage] = useState(false);
-
+  
   // INSERT YOUR CREATED MOVIE ENDPOINTS
-  const MOVIES_ENDPOINT = "";
+  const [moviesEndpoint, setMoviesEndpoint] = useState('');
+  const [titlesEndpoint, setTitlesEndpoint] = useState('');
 
   const fetchMovies = async (searchTerm) => {
     console.log("HITTING FETCH MOVIES API");
@@ -27,7 +29,7 @@ const Home = () => {
 
     try {
       // BASIC SEARCH - append searchTerm as URL parameter to GET endpoint
-      const endpoint = MOVIES_ENDPOINT + "?searchTerm=" + searchTerm; //+ "&rating=" + rating;
+      const endpoint = moviesEndpoint + "?searchTerm=" + searchTerm; //+ "&rating=" + rating;
       const returnedMovies = await (await fetch(endpoint)).json();
       setMovies(returnedMovies);
       console.log("MOVIES: ", returnedMovies);
@@ -38,7 +40,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!submitted) return;
-    if (MOVIES_ENDPOINT === "") {
+    if (moviesEndpoint === "") {
       setShowNeedEndpointMessage(true);
       return;
     }
@@ -52,6 +54,12 @@ const Home = () => {
   return (
     <>
       {" "}
+      <EndPoints
+        moviesEndpoint={moviesEndpoint}
+        setMoviesEndpoint={setMoviesEndpoint}
+        titlesEndpoint={titlesEndpoint}
+        setTitlesEndpoint={setTitlesEndpoint}
+      />
       <Header
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -61,6 +69,7 @@ const Home = () => {
         setSubmitted={setSubmitted}
         showSuggestions={showSuggestions}
         setShowSuggestions={setShowSuggestions}
+        titlesEndpoint={titlesEndpoint}
       />
       <div className="container">
         {showFilter && (

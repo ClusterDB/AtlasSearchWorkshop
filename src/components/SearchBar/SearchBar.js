@@ -7,24 +7,22 @@ import { Wrapper, Content } from "./SearchBar.styles";
 const SearchBar = ({
   searchTerm,
   setSearchTerm,
-  setMovies,
   setSubmitted,
   showSuggestions,
   setShowSuggestions,
+  titlesEndpoint
 }) => {
-  const TITLES_ENDPOINT = "";
-
   const initial = useRef(true); // a mutable variable that will not affect state - and won't trigger a re-render
   const [suggestions, setSuggestions] = useState([]);
 
   const fetchAutocompleteTitles = async (searchTerm) => {
-    if (TITLES_ENDPOINT === "") {
+    if (titlesEndpoint === "") {
       console.log("BUILD AUTOCOMPLETE ENDPOINT");
       return;
     }
-    let endpoint = TITLES_ENDPOINT;
+    let endpoint = titlesEndpoint;
     if (searchTerm) {
-      endpoint = TITLES_ENDPOINT + `?searchTerm=${searchTerm}`;
+      endpoint = titlesEndpoint + `?searchTerm=${searchTerm}`;
     }
     try {
       let names = await (await fetch(endpoint)).json();

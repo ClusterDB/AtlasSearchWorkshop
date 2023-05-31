@@ -30,10 +30,10 @@ const Header = ({
   setSearchTerm,
   showFilter,
   setShowFilter,
-  setMovies,
   setSubmitted,
   showSuggestions,
   setShowSuggestions,
+  titlesEndpoint
 }) => (
   <Wrapper>
     <Content>
@@ -46,10 +46,10 @@ const Header = ({
         <SearchBar
           setSearchTerm={setSearchTerm}
           searchTerm={searchTerm}
-          setMovies={setMovies}
           setSubmitted={setSubmitted}
           showSuggestions={showSuggestions}
           setShowSuggestions={setShowSuggestions}
+          titlesEndpoint={titlesEndpoint}
         />
       </InputForm>
     </Content>
